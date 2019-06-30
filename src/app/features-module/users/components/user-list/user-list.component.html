@@ -1,0 +1,4 @@
+<h3>Users List</h3>
+<ul *ngIf="users">
+  <li *ngFor="let user of users | async">{{ user._id }}</li>
+</ul>

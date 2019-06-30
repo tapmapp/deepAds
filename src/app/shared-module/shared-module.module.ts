@@ -1,14 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders } from '../../../node_modules/@angular/compiler/src/core';
+import { ModuleWithProviders } from '@angular/compiler/src/core';
+
+// MODULES
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+// COMPONENTS
+import { HeaderComponent } from './components/header/header.component';
 
 // SERVICES
+import { UsersLocationsService } from '../shared-module/sockets/socket.service';
 import { UsersService } from '../services/users.service';
 
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
+
 @NgModule({
-  declarations: [],
+  declarations: [
+    HeaderComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    SocketIoModule.forRoot(config),
+  ],
+  exports: [
+    SocketIoModule,
+    HeaderComponent,
   ]
 })
 export class SharedModule {
@@ -16,6 +32,7 @@ export class SharedModule {
     return {
       ngModule: SharedModule,
       providers: [
+        UsersLocationsService,
         UsersService
       ]
     }
