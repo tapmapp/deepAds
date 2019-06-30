@@ -1,0 +1,4 @@
+.map { padding: 0px; width: 75%; float: left; }
+.map agm-map { height: 100vh; }
+
+.users { width: 25%; float: left; }
