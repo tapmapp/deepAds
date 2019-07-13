@@ -10,6 +10,6 @@ export class UsersLocationsService {
         this.socket.emit("test", msg);
     }
      getMessage() {
-        return this.socket.fromEvent("news");
+        return this.socket.fromEvent("user-location");
     }
 }
